@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: wil-service
+  namespace: dev
+spec:
+  selector: # A Selector lets you filter resources based on their labels. Redirects towards a specific deployment.
+    app: wil-playground
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8888
+  type: ClusterIP
